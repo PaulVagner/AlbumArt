@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DP9-eh-i6p">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Albums View Controller-->
@@ -129,15 +130,63 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" id="nBc-8E-EpE" customClass="TrackCell" customModule="AlbumArt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="50" id="nBc-8E-EpE" customClass="TrackCell" customModule="AlbumArt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nBc-8E-EpE" id="GIe-2O-nZl">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjH-DH-gp8" customClass="SVGPlayButton" customModule="SVGPlayButton">
+                                                    <rect key="frame" x="282" y="10" width="30" height="30"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="7v2-ci-2rq"/>
+                                                        <constraint firstAttribute="width" constant="30" id="pHr-hg-cup"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="pressedPlayButton:" destination="nBc-8E-EpE" eventType="touchUpInside" id="k7M-uO-Umn"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELV-JT-PNN">
+                                                    <rect key="frame" x="8" y="8" width="194" height="34"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMb-Jr-Kyd">
+                                                    <rect key="frame" x="212" y="8" width="60" height="33.5"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="0.038336527547075394" green="0.52344774873984823" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="0.99">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="pressedBuyButton:" destination="nBc-8E-EpE" eventType="touchUpInside" id="eDP-DQ-veJ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="ELV-JT-PNN" firstAttribute="top" secondItem="GIe-2O-nZl" secondAttribute="topMargin" id="29R-sS-piz"/>
+                                                <constraint firstItem="vjH-DH-gp8" firstAttribute="trailing" secondItem="GIe-2O-nZl" secondAttribute="trailingMargin" id="4Is-jL-o8s"/>
+                                                <constraint firstItem="OMb-Jr-Kyd" firstAttribute="top" secondItem="GIe-2O-nZl" secondAttribute="topMargin" id="DfV-u7-diV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ELV-JT-PNN" secondAttribute="bottom" id="EjU-FT-zYT"/>
+                                                <constraint firstItem="ELV-JT-PNN" firstAttribute="leading" secondItem="GIe-2O-nZl" secondAttribute="leadingMargin" id="HX4-OC-SnD"/>
+                                                <constraint firstItem="vjH-DH-gp8" firstAttribute="leading" secondItem="ELV-JT-PNN" secondAttribute="trailing" constant="80" id="VAX-AC-9EW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="OMb-Jr-Kyd" secondAttribute="bottom" id="Wl0-aJ-zu1"/>
+                                                <constraint firstItem="vjH-DH-gp8" firstAttribute="leading" secondItem="OMb-Jr-Kyd" secondAttribute="trailing" constant="10" id="Xn5-JO-ofb"/>
+                                                <constraint firstItem="vjH-DH-gp8" firstAttribute="centerY" secondItem="GIe-2O-nZl" secondAttribute="centerY" id="bEn-eE-cq9"/>
+                                                <constraint firstItem="OMb-Jr-Kyd" firstAttribute="leading" secondItem="ELV-JT-PNN" secondAttribute="trailing" constant="10" id="xhb-UA-M6x"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="buyButton" destination="OMb-Jr-Kyd" id="jZ7-DY-iXr"/>
+                                            <outlet property="playButton" destination="vjH-DH-gp8" id="ewm-U1-Rfu"/>
+                                            <outlet property="trackNameLabel" destination="ELV-JT-PNN" id="ost-QR-tr0"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

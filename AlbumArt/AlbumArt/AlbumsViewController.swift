@@ -124,7 +124,7 @@ class AlbumsDataSource: NSObject, UICollectionViewDataSource {
                 
             }
             
-            print(data)
+            //print(data)
             
             }) { (operation, error) -> Void in
               
@@ -152,7 +152,7 @@ class Album: NSObject {
         
         artistName = info["artistName"] as? String
         albumArtURL = info["artworkUrl100"] as? String
-        albumID = info["collectionID"] as? Int
+        albumID = info["collectionId"] as? Int
         albumName = info["collectionName"] as? String
         itunesLink = info["collectionViewUrl"] as? String
         isNotExplicit = info["collectionExplicitness"] as? String ?? "" == "notExplicit"
