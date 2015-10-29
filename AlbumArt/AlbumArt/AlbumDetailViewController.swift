@@ -17,7 +17,9 @@ class AlbumDetailViewController: UIViewController {
     
     
     @IBOutlet weak var albumImageView: UIImageView!
+    
     @IBOutlet weak var albumNameLabel: UILabel!
+    
     @IBOutlet weak var tracksTableView: UITableView!
     
     let tracksData = TracksDataSource()
