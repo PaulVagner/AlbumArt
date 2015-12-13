@@ -113,13 +113,7 @@ class TracksDataSource: NSObject, UITableViewDataSource {
                         
                         
                         }
-                        
-                        
-                        
-//                        let album = Album(info: result)
-//                        self.albums.append(album)
-                        
-                        
+
                     }
                     
                     completion()
